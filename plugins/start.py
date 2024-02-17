@@ -93,21 +93,9 @@ async def start_command(client: Client, message: Message):
                 ]
             ]
                 )
-        await message.reply_photo(
-            photo = START_PIC,
-            caption = START_MSG.format(
-                first = message.from_user.first_name,
-                last = message.from_user.last_name,
-                username = None if not message.from_user.username else '@' + message.from_user.username,
-                mention = message.from_user.mention,
-                id = message.from_user.id
-            ),
-            reply_markup = reply_markup,
-            disable_web_page_preview = True,
-            quote = True
-        )
+        if Config.START_PIC:
+        await message.reply_photo(Config.START_PIC, caption=Txt.START_MSG.format(user.mention), reply_markup=button)
         return   
-
 
 #=====================================================================================##
 
@@ -123,7 +111,7 @@ REPLY_ERROR = """<code>Use this command as a reply to any telegram message with 
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.invitelink),
+         InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟷", url=client.invitelink),
             InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ 𝟸", url=client.invitelink2),
         ]
     ]
