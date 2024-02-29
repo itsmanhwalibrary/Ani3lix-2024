@@ -47,20 +47,11 @@
     },
     "START_MESSAGE": {
       "description": "Optional: start message of bot, use HTML parsemode format",
-      "value": "<b>ʜᴇʟʟᴏ {first} 
-
-ɪ'ᴍ ʜᴇʀᴇ ᴀᴛ ᴛᴏ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜʀ ᴀɴɪᴍᴇ ! ɪғ ʙᴏᴛ ᴏʀ ᴀɴʏ ʟɪɴᴋs ɴᴏᴛ ᴡᴏʀᴋɪɴɢ ʀᴇᴘᴏʀᴛ ᴀᴛ ᴏᴜʀ <a href='https://t.me/Anime_Sensei_Chat'>sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ</a>
-
-ᴛʜᴀɴᴋ ʏᴏᴜ..!!</b>"
+      "value": "<b>ʜᴇʟʟᴏ {first} ɪ'ᴍ ʜᴇʀᴇ ᴀᴛ ᴛᴏ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜʀ ᴀɴɪᴍᴇ ! ɪғ ʙᴏᴛ ᴏʀ ᴀɴʏ ʟɪɴᴋs ɴᴏᴛ ᴡᴏʀᴋɪɴɢ ʀᴇᴘᴏʀᴛ ᴀᴛ ᴏᴜʀ <a href='https://t.me/Anime_Sensei_Chat'>sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ</a> ᴛʜᴀɴᴋ ʏᴏᴜ..!!</b>"
     },
     "FORCE_SUB_MESSAGE": {
       "description": "Optional: Force Sub message of bot, use HTML parsemode format",
-      "value": "<b>ʜᴇʟʟᴏ {first}
-
-ᴘʟᴇᴀsᴇ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ ʙʏ
-[ ᴛᴀᴘ ᴏɴ ᴊᴏɪɴ ⚡ ] ᴛʜᴇɴ ᴅᴏᴡɴʟᴏᴀᴅ ʙʏ ᴛᴀᴘᴘɪɴɢ ᴏɴ ⚡ᴛʀʏ ᴀɢᴀɪɴ.
-
-ᴛʜᴀɴᴋ ʏᴏᴜ..!!</b>"
+      "value": "<b>ʜᴇʟʟᴏ {first} ᴘʟᴇᴀsᴇ ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ ʙʏ [ ᴛᴀᴘ ᴏɴ ᴊᴏɪɴ ⚡ ] ᴛʜᴇɴ ᴅᴏᴡɴʟᴏᴀᴅ ʙʏ ᴛᴀᴘᴘɪɴɢ ᴏɴ ⚡ᴛʀʏ ᴀɢᴀɪɴ. ᴛʜᴀɴᴋ ʏᴏᴜ..!!</b>"
     },
     "ADMINS": {
       "description": "A space separated list of user_ids of Admins, they can only create links",
