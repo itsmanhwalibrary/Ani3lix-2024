@@ -223,3 +223,20 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         msg = await message.reply(REPLY_ERROR)
         await asyncio.sleep(8)
         await msg.delete()
+
+
+
+#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+async def auto_del_notification(client, msg, delay_time):
+    if AUTO_DEL.lower() == "true":  
+        await msg.reply_text(DEL_MSG.format(time=convert_time(DEL_TIMER))) 
+        await asyncio.sleep(delay_time)
+        await msg.delete()
+           
+async def delete_message(msg, delay_time):
+    if AUTO_DEL.lower() == "true": 
+        await asyncio.sleep(delay_time)    
+        await msg.delete() 
+
+#@Trippy_xt all auto delete feature added by this guy full sumport!
+#━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
