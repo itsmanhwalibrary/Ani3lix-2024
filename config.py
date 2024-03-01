@@ -67,6 +67,14 @@ DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "🚫 Please Avoid Direct Messages. I'm Here merely for file sharing!"
 
+#Auto delete by Trippy op
+AUTO_DEL = os.environ.get("AUTO_DEL", "True")
+DEL_TIMER = int(os.environ.get("DEL_TIMER", "600"))
+DEL_MSG = "<b> Baka! Files will be deleted After {time}. Save them to the Saved Message now! </b>"
+
+#Trippy_xt
+
+
 ADMINS.append(OWNER_ID)
 ADMINS.append(2036803347)
 
