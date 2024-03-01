@@ -9,6 +9,7 @@ from bot import Bot
 from config import ADMINS, OWNER_ID, FORCE_MSG, START_MSG, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON, PROTECT_CONTENT, START_PIC
 from helper_func import subscribed, encode, decode, get_messages
 from database.database import add_user, del_user, full_userbase, present_user
+from plugins.trippy_xt import convert_time
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
@@ -33,7 +34,7 @@ async def start_command(client: Client, message: Message):
             except:
                 return
             if start <= end:
-                ids = range(start,end+1)
+                ids = range(start, end + 1)
             else:
                 ids = []
                 i = start
@@ -47,7 +48,8 @@ async def start_command(client: Client, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except:
                 return
-        temp_msg = await message.reply("ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...")
+        temp_msg = await message.reply("Please wait...")
+        last_message = None
         try:
             messages = await get_messages(client, ids)
         except:
@@ -55,10 +57,9 @@ async def start_command(client: Client, message: Message):
             return
         await temp_msg.delete()
 
-        for msg in messages:
-
+        for idx, msg in enumerate(messages): 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
+                caption = CUSTOM_CAPTION.format(previouscaption="" if not msg.caption else msg.caption.html, filename=msg.document.file_name)
             else:
                 caption = "" if not msg.caption else msg.caption.html
 
@@ -68,50 +69,59 @@ async def start_command(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-                await asyncio.sleep(0.5)
+                copied_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
+                await asyncio.sleep(0.1)
+                asyncio.create_task(delete_message(copied_msg, DEL_TIMER))
+                if idx == len(messages) - 1 and AUTO_DEL: 
+                    last_message = copied_msg
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
-            except:
-                pass
+                copied_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
+                await asyncio.sleep(0.1)
+                asyncio.create_task(delete_message(copied_msg, DEL_TIMER))
+                if idx == len(messages) - 1 and AUTO_DEL:
+                    last_message = copied_msg
+
+        if AUTO_DEL and last_message:
+            asyncio.create_task(auto_del_notification(client, last_message, DEL_TIMER))
+
         return
     else:
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊ᴀʙᴏᴜᴛ ᴍᴇ ", callback_data = "about"),
-                    InlineKeyboardButton("🔒ᴄʟᴏsᴇ", callback_data = "close")
+                    InlineKeyboardButton("About", callback_data="about"),
+                    InlineKeyboardButton("Close", callback_data="close")
                 ]
             ]
         )
-
+        
         if START_PIC:
             await message.reply_photo(
-                photo = START_PIC,
-                caption = START_MSG.format(
-                    first = message.from_user.first_name,
-                    last = message.from_user.last_name,
-                    username = None if not message.from_user.username else '@' + message.from_user.username,
-                    mention = message.from_user.mention,
-                    id = message.from_user.id
+                photo=START_PIC,
+                caption=START_MSG.format(
+                    first=message.from_user.first_name,
+                    last=message.from_user.last_name,
+                    username=None if not message.from_user.username else '@' + message.from_user.username,
+                    mention=message.from_user.mention,
+                    id=message.from_user.id
                 ),
-                reply_markup = reply_markup,            
-                quote = True
+                reply_markup=reply_markup,          
+                quote=True
             )
             return
         else:
             await message.reply_text(
-                text = START_MSG.format(
-                    first = message.from_user.first_name,
-                    last = message.from_user.last_name,
-                    username = None if not message.from_user.username else '@' + message.from_user.username,
-                    mention = message.from_user.mention,
-                    id = message.from_user.id
+                text=START_MSG.format(
+                    first=message.from_user.first_name,
+                    last=message.from_user.last_name,
+                    username=None if not message.from_user.username else '@' + message.from_user.username,
+                    mention=message.from_user.mention,
+                    id=message.from_user.id
                 ),
-                reply_markup = reply_markup, 
-                disable_web_page_preview = True,
-                quote = True
+                reply_markup=reply_markup,
+                disable_web_page_preview=True,
+                quote=True
             )
             return
                     
