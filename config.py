@@ -9,7 +9,7 @@ from logging.handlers import RotatingFileHandler
 
 
 #Your Telegram Bot Token From Botfather 
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6501228626:AAEQHsECHdUTC9Oc3QuvX-Vuc7pwEhF6me8")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6813308007:AAFdsfjYH6_OJJnAdS38QaQWMaaizBrFTw8")
 
 #Your API ID from my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", "26376042"))
@@ -37,7 +37,7 @@ FORCE_SUB_CHANNEL2 = int(os.environ.get("FORCE_SUB_CHANNEL2", "-1001709507082"))
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 #start pic
-START_PIC = os.environ.get("START_PIC", "https://graph.org/file/a8e99edce1a97b9a56609.jpg")
+START_PIC = os.environ.get("START_PIC", "https://graph.org/file/9517fde647ca9168495d9.jpg")
 
 #start message
 START_MSG = os.environ.get("START_MESSAGE", " <b>ʜɪ ... {first}! 💥\n\nɪ ᴀᴍ ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ...!\n\nɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴘʀɪᴠᴀᴛᴇ ꜰɪʟᴇꜱ ᴛʜʀᴏᴜɢʜ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ʟɪɴᴋ....!<a href='https://t.me/Anime_Sensei_Chat'>sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ</a> </b>")
