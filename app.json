@@ -45,6 +45,10 @@
       "description": "id of the channel or group, if you want enable force sub feature else put 0",
       "value": "0"
     },
+    "FORCE_SUB_CHANNEL3":{
+      "description": "id of the channel or group, if you want enable force sub feature else put 0",
+      "value": "0"
+    },
     "START_MESSAGE": {
       "description": "Optional: start message of bot, use HTML parsemode format",
       "value": "<b>ʜᴇʟʟᴏ {first} ɪ'ᴍ ʜᴇʀᴇ ᴀᴛ ᴛᴏ ᴘʀᴏᴠɪᴅᴇ ʏᴏᴜʀ ᴀɴɪᴍᴇ ! ɪғ ʙᴏᴛ ᴏʀ ᴀɴʏ ʟɪɴᴋs ɴᴏᴛ ᴡᴏʀᴋɪɴɢ ʀᴇᴘᴏʀᴛ ᴀᴛ ᴏᴜʀ <a href='https://t.me/Anime_Sensei_Chat'>sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ</a> ᴛʜᴀɴᴋ ʏᴏᴜ..!!</b>"
