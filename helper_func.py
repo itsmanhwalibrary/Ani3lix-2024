@@ -5,7 +5,7 @@ import re
 import asyncio
 from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus
-from config import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL2, ADMINS
+from config import FORCE_SUB_CHANNEL, FORCE_SUB_CHANNEL2, FORCE_SUB_CHANNEL3, ADMINS
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyrogram.errors import FloodWait
 
@@ -25,7 +25,7 @@ async def is_subscribed(filter, client, update):
     else:
         return True
 
-async def is_subscribed(filter, client, update):
+async def is_subscribed2(filter, client, update):
     if not FORCE_SUB_CHANNEL2:
         return True
     user_id = update.from_user.id
@@ -41,27 +41,22 @@ async def is_subscribed(filter, client, update):
     else:
         return True
 
-async def is_subscribed(filter, client, update):
-    if not FORCE_SUB_CHANNEL:
-        return True
-    if not FORCE_SUB_CHANNEL2:
+async def is_subscribed3(filter, client, update):
+    if not FORCE_SUB_CHANNEL3:
         return True
     user_id = update.from_user.id
     if user_id in ADMINS:
         return True
     try:
-        member = await client.get_chat_member(chat_id = FORCE_SUB_CHANNEL, user_id = user_id)
+        member = await client.get_chat_member(chat_id = FORCE_SUB_CHANNEL3, user_id = user_id)
     except UserNotParticipant:
         return False
 
     if not member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.MEMBER]:
         return False
-    try:
-        member = await client.get_chat_member(chat_id = FORCE_SUB_CHANNEL2, user_id = user_id)
-    except UserNotParticipant:
-        return False
     else:
         return True
+       
         
 async def encode(string):
     string_bytes = string.encode("ascii")
@@ -146,4 +141,6 @@ def get_readable_time(seconds: int) -> str:
 
 
 subscribed = filters.create(is_subscribed)
-       
+subscribed2 = filters.create(is_subscribed2)
+subscribed3 = filters.create(is_subscribed3)
+
