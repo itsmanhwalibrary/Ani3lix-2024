@@ -9,7 +9,7 @@ from logging.handlers import RotatingFileHandler
 
 
 #Your Telegram Bot Token From Botfather 
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6813308007:AAFdsfjYH6_OJJnAdS38QaQWMaaizBrFTw8")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6385999400:AAHX41KYjop04uH5eMxQE5QT9oMYsTKvVt8")
 
 #Your API ID from my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", "26376042"))
@@ -31,14 +31,14 @@ DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://animesensei:animesensei11
 DB_NAME = os.environ.get("DATABASE_NAME", "filesharexbot")
 
 #force sub channel id, if you want enable force sub
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1001742523614"))
-FORCE_SUB_CHANNEL2 = int(os.environ.get("FORCE_SUB_CHANNEL2", "-1001709507082"))
-FORCE_SUB_CHANNEL3 = int(os.environ.get("FORCE_SUB_CHANNEL3", "-1001709507082"))
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002006526449"))
+FORCE_SUB_CHANNEL2 = int(os.environ.get("FORCE_SUB_CHANNEL2", "-1001930610610"))
+FORCE_SUB_CHANNEL3 = int(os.environ.get("FORCE_SUB_CHANNEL3", "-1001538889144"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 #start pic
-START_PIC = os.environ.get("START_PIC", "https://graph.org/file/9517fde647ca9168495d9.jpg")
+START_PIC = os.environ.get("START_PIC", "https://graph.org/file/cf462f10a7da1037af6d8.jpg")
 
 #start message
 START_MSG = os.environ.get("START_MESSAGE", " <b>ʜɪ ... {first}! 💥\n\nɪ ᴀᴍ ᴀ ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ...!\n\nɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴘʀɪᴠᴀᴛᴇ ꜰɪʟᴇꜱ ᴛʜʀᴏᴜɢʜ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ʟɪɴᴋ....!<a href='https://t.me/Anime_Sensei_Chat'>sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ</a> </b>")
